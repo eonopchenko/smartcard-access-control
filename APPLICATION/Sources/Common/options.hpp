@@ -30,6 +30,8 @@ enum MemoryMap_t
 	EXPORT_TABLE_ADDRESS				= 0x08000200,	///< Sector 0+0x200 (export table address)
 	FIRMWARE_ADDRESS					= 0x08002000,	///< Sector 2 (firmware start address)
 	FIRMWARE_IMAGE_ADDRESS				= 0x08003000,	///< Sector 16 (firmware image start address)
+	
+	DATA_EEPROM_ADDRESS					= 0x08080000,	///< Data EEPROM (0x0808 0000 - 0x0808 0FFF) (4096 bytes)
 };
 
 #endif	/* __OPTIONS_HPP */

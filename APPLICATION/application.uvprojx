@@ -452,9 +452,14 @@
               <FilePath>.\Sources\HAL\core.cpp</FilePath>
             </File>
             <File>
-              <FileName>embedded_flash.cpp</FileName>
+              <FileName>data_eeprom.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Sources\HAL\embedded_flash.cpp</FilePath>
+              <FilePath>.\Sources\HAL\data_eeprom.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>iso7816.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\HAL\iso7816.cpp</FilePath>
             </File>
             <File>
               <FileName>system_timer.cpp</FileName>
@@ -470,11 +475,6 @@
               <FileName>watchdog_timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Sources\HAL\watchdog_timer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>iso7816.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Sources\HAL\iso7816.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -956,9 +956,14 @@
               <FilePath>.\Sources\HAL\core.cpp</FilePath>
             </File>
             <File>
-              <FileName>embedded_flash.cpp</FileName>
+              <FileName>data_eeprom.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Sources\HAL\embedded_flash.cpp</FilePath>
+              <FilePath>.\Sources\HAL\data_eeprom.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>iso7816.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\HAL\iso7816.cpp</FilePath>
             </File>
             <File>
               <FileName>system_timer.cpp</FileName>
@@ -974,11 +979,6 @@
               <FileName>watchdog_timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Sources\HAL\watchdog_timer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>iso7816.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Sources\HAL\iso7816.cpp</FilePath>
             </File>
           </Files>
         </Group>
