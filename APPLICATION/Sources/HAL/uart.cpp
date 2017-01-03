@@ -45,10 +45,10 @@ Uart::Uart(uint32_t baudrate)
 	
 	/// DMA RX channel tunning
 	DMA1_Channel5->CCR = (
-		DMA_CCR5_PL_0 | 		///< Channel priority level = Medium
-		DMA_CCR5_MINC | 		///< Memory increment mode = Enabled
-		DMA_CCR5_CIRC | 		///< Circular mode = Enabled
-		DMA_CCR5_EN);			///< Channel enable = Enabled
+		DMA_CCR_PL_0 | 		///< Channel priority level = Medium
+		DMA_CCR_MINC | 		///< Memory increment mode = Enabled
+		DMA_CCR_CIRC | 		///< Circular mode = Enabled
+		DMA_CCR_EN);			///< Channel enable = Enabled
 	
 	
 	///--- TX ---///
@@ -63,9 +63,9 @@ Uart::Uart(uint32_t baudrate)
 	
 	/// DMA TX channel tunning
 	DMA1_Channel4->CCR = (
-		DMA_CCR4_PL_0 | 		///< Channel priority level = Medium
-		DMA_CCR4_MINC | 		///< Memory increment mode = Enabled
-		DMA_CCR4_DIR); 			///< Data transfer direction = Read from memory
+		DMA_CCR_PL_0 | 		///< Channel priority level = Medium
+		DMA_CCR_MINC | 		///< Memory increment mode = Enabled
+		DMA_CCR_DIR); 			///< Data transfer direction = Read from memory
 	
 	/// Tune baudrate
 	float divider = (float)HSE_VALUE / (16 * baudrate);
@@ -127,9 +127,9 @@ void Uart::Transmit(const char* data, uint16_t count)
 	while(DMA1_Channel4->CNDTR & DMA_CNDTR4_NDT);
 	
 	/// Disable channel
-	if(DMA1_Channel4->CCR & DMA_CCR4_EN)
+	if(DMA1_Channel4->CCR & DMA_CCR_EN)
 	{
-		DMA1_Channel4->CCR &= ~DMA_CCR4_EN;
+		DMA1_Channel4->CCR &= ~DMA_CCR_EN;
 	}
 	
 	/// Copy data to buffer, set size
@@ -142,7 +142,7 @@ void Uart::Transmit(const char* data, uint16_t count)
 	Board::SetWrite485();
 	
 	/// Start transmission
-	DMA1_Channel4->CCR |= DMA_CCR4_EN;
+	DMA1_Channel4->CCR |= DMA_CCR_EN;
 }
 
 

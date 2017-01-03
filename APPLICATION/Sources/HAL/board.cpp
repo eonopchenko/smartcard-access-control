@@ -25,20 +25,20 @@ void Board::Init()
 	GPIOA->MODER &= ~GPIO_MODER_MODER8;
 	GPIOA->MODER |= GPIO_MODER_MODER8_0;
 	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_8;
-	GPIOA->BSRRH = GPIO_BSRR_BR_8 >> 16;
+	GPIOA->BSRR = GPIO_BSRR_BR_8;
 	
 	/// PA9 - 485TX (MODE = 10)
 	GPIOA->MODER &= ~GPIO_MODER_MODER9;
 	GPIOA->MODER |= GPIO_MODER_MODER9_1;
 	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_9;
-	GPIOA->AFR[1] &= ~GPIO_AFRH_AFRH9;
-	GPIOA->AFR[1] |= 7 << (9 - 8) * 4;
+	GPIOA->AFR[1] &= ~GPIO_AFRH_AFRH1;
+	GPIOA->AFR[1] |= 7 << ((9 - 8) * 4);
 	
 	/// PA10 - 485RX (MODE = 10)
 	GPIOA->MODER &= ~GPIO_MODER_MODER10;
 	GPIOA->MODER |= GPIO_MODER_MODER10_1;
 	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_10;
-	GPIOA->AFR[1] &= ~GPIO_AFRH_AFRH10;
+	GPIOA->AFR[1] &= ~GPIO_AFRH_AFRH2;
 	GPIOA->AFR[1] |= 7 << ((10 - 8) * 4);
 	
 	
@@ -69,14 +69,14 @@ void Board::Init()
 	GPIOA->MODER &= ~GPIO_MODER_MODER5;
 	GPIOA->MODER |= GPIO_MODER_MODER5_0;
 	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_5;
-	GPIOA->BSRRH = GPIO_BSRR_BR_5 >> 16;
+	GPIOA->BSRR = GPIO_BSRR_BR_5;
 	
 	/// PA6 - ISO7816 RST (MODE = 01)
 	/// Output, Push-Pull, Max. output speed 2 MHz
 	GPIOA->MODER &= ~GPIO_MODER_MODER6;
 	GPIOA->MODER |= GPIO_MODER_MODER6_0;
 	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_6;
-	GPIOA->BSRRH = GPIO_BSRR_BR_6 >> 16;
+	GPIOA->BSRR = GPIO_BSRR_BR_6;
 }
 
 
@@ -85,7 +85,7 @@ void Board::Init()
 */
 void Board::SetRead485()
 {
-	GPIOA->BSRRH = GPIO_BSRR_BR_8 >> 16;
+	GPIOA->BSRR = GPIO_BSRR_BR_8;
 }
 
 
@@ -94,7 +94,7 @@ void Board::SetRead485()
 */
 void Board::SetWrite485()
 {
-	GPIOA->BSRRL = GPIO_BSRR_BS_8;
+	GPIOA->BSRR = GPIO_BSRR_BS_8;
 }
 
 
@@ -103,7 +103,7 @@ void Board::SetWrite485()
 */
 void Board::Set_ISO7816_VCC_High()
 {
-	GPIOA->BSRRL = GPIO_BSRR_BS_5;
+	GPIOA->BSRR = GPIO_BSRR_BS_5;
 }
 
 
@@ -112,7 +112,7 @@ void Board::Set_ISO7816_VCC_High()
 */
 void Board::Set_ISO7816_VCC_Low()
 {
-	GPIOA->BSRRH = GPIO_BSRR_BR_5 >> 16;
+	GPIOA->BSRR = GPIO_BSRR_BR_5 >> 16;
 }
 
 
@@ -121,7 +121,7 @@ void Board::Set_ISO7816_VCC_Low()
 */
 void Board::Set_ISO7816_RST_High()
 {
-	GPIOA->BSRRL = GPIO_BSRR_BS_6;
+	GPIOA->BSRR = GPIO_BSRR_BS_6;
 }
 
 
@@ -130,5 +130,5 @@ void Board::Set_ISO7816_RST_High()
 */
 void Board::Set_ISO7816_RST_Low()
 {
-	GPIOA->BSRRH = GPIO_BSRR_BR_6 >> 16;
+	GPIOA->BSRR = GPIO_BSRR_BR_6;
 }
